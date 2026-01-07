@@ -164,7 +164,7 @@ export function EthersDemo() {
   return (
     <div className="space-y-6">
       {/* 1. Connect */}
-      <div className="p-4 border rounded-lg bg-gray-100 dark:bg-gray-800">
+      <div className="p-4 border border-gray-700 rounded-lg bg-gray-800">
         <h2 className="text-xl font-semibold mb-4">1. Connect Wallet</h2>
         {!account ? (
           <button
@@ -182,19 +182,19 @@ export function EthersDemo() {
       </div>
 
       {/* 2. Send ETH */}
-      <div className="p-4 border rounded-lg bg-gray-100 dark:bg-gray-800">
+      <div className="p-4 border border-gray-700 rounded-lg bg-gray-800">
         <h2 className="text-xl font-semibold mb-4">2. Send ETH</h2>
         <form onSubmit={sendEth} className="flex flex-col gap-2 max-w-sm">
           <input
             name="address"
             placeholder="Recipient"
-            className="p-2 bg-white text-black rounded"
+            className="p-2 border border-gray-700 rounded bg-gray-900 text-white placeholder-gray-400"
             required
           />
           <input
             name="value"
             placeholder="Amount (ETH)"
-            className="p-2 bg-white text-black rounded"
+            className="p-2 border border-gray-700 rounded bg-gray-900 text-white placeholder-gray-400"
             required
           />
           <button
@@ -207,7 +207,7 @@ export function EthersDemo() {
       </div>
 
       {/* 4 & 5. Token Ops */}
-      <div className="p-4 border rounded-lg bg-gray-100 dark:bg-gray-800">
+      <div className="p-4 border border-gray-700 rounded-lg bg-gray-800">
         <h2 className="text-xl font-semibold mb-4">
           3. ERC-20 Operations ({tokenSymbol})
         </h2>
@@ -223,13 +223,13 @@ export function EthersDemo() {
           <input
             name="to"
             placeholder="Recipient"
-            className="p-2 bg-white text-black rounded"
+            className="p-2 border border-gray-700 rounded bg-gray-900 text-white placeholder-gray-400"
             required
           />
           <input
             name="amount"
             placeholder="Amount"
-            className="p-2 bg-white text-black rounded"
+            className="p-2 border border-gray-700 rounded bg-gray-900 text-white placeholder-gray-400"
             required
           />
           <button

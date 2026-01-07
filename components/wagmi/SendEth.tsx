@@ -9,7 +9,7 @@ export function SendEth() {
     data: hash,
     error,
     isPending,
-    mutate: sendTransaction,
+    sendTransaction,
   } = useSendTransaction();
 
   async function submit(e: FormEvent<HTMLFormElement>) {
@@ -32,13 +32,13 @@ export function SendEth() {
         name="address"
         placeholder="Recipient Address (0x...)"
         required
-        className="p-2 border rounded text-black bg-white"
+        className="p-2 border border-gray-700 rounded bg-gray-900 text-white placeholder-gray-400"
       />
       <input
         name="value"
         placeholder="Amount (ETH)"
         required
-        className="p-2 border rounded text-black bg-white"
+        className="p-2 border border-gray-700 rounded bg-gray-900 text-white placeholder-gray-400"
       />
       <button
         disabled={isPending}

@@ -1,10 +1,10 @@
 "use client";
 
-import { useBalance, useConnection } from "wagmi";
+import { useBalance, useAccount } from "wagmi";
 import { formatUnits } from "viem";
 
 export function Balance() {
-  const { address } = useConnection();
+  const { address } = useAccount();
   const { data, isError, isLoading } = useBalance({
     address,
   });

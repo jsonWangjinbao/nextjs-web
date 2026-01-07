@@ -8,7 +8,7 @@ import {
 } from "wagmi";
 import { parseUnits, formatUnits, parseAbi } from "viem";
 import { useState, FormEvent } from "react";
-import { useConnection } from "wagmi";
+import { useAccount } from "wagmi";
 
 const ERC20_ABI = parseAbi([
   "constructor(string _name, string _symbol, uint256 _initialSupply)",
@@ -42,7 +42,7 @@ const ERC20_ABI = parseAbi([
 const TOKEN_ADDRESS = "0xdfeF385cEA1067d81AafCa3603AF3b3AAdA633aB";
 
 export function TokenOperations() {
-  const { address } = useConnection();
+  const { address, isConnected } = useAccount();
   const [logs, setLogs] = useState<any[]>([]);
 
   // 1. 获取余额
@@ -72,7 +72,7 @@ export function TokenOperations() {
   const {
     data: hash,
     isPending,
-    mutateAsync: writeContract,
+    writeContractAsync: writeContract,
     error,
   } = useWriteContract();
 
@@ -104,11 +104,16 @@ export function TokenOperations() {
     address: TOKEN_ADDRESS,
     abi: ERC20_ABI,
     eventName: "Transfer",
-    poll: true,
+    enabled: isConnected,
     pollingInterval: 2_000,
+    // 关键：添加链ID
+    chainId: 11155111, // Sepolia
     onLogs(newLogs) {
-      console.log("newLogs", newLogs);
+      console.log("🔥 [useWatchContractEvent] newLogs:", newLogs);
       setLogs((prev) => [...newLogs, ...prev]);
+    },
+    onError(error) {
+      console.error("❌ [useWatchContractEvent] error:", error);
     },
   });
 
@@ -133,13 +138,13 @@ export function TokenOperations() {
             name="to"
             placeholder="Recipient Address (0x...)"
             required
-            className="p-2 border rounded text-black bg-white"
+            className="p-2 border border-gray-700 rounded bg-gray-800 text-white placeholder-gray-400"
           />
           <input
             name="amount"
             placeholder="Amount"
             required
-            className="p-2 border rounded text-black bg-white"
+            className="p-2 border border-gray-700 rounded bg-gray-800 text-white placeholder-gray-400"
           />
           <button
             disabled={isPending}
@@ -165,7 +170,7 @@ export function TokenOperations() {
 
       <div>
         <h3 className="font-semibold mb-2">Recent Events (Live)</h3>
-        <div className="max-h-40 overflow-y-auto border p-2 rounded bg-gray-50 dark:bg-gray-900 text-xs font-mono">
+        <div className="max-h-40 overflow-y-auto border border-gray-700 p-2 rounded bg-gray-900 text-xs font-mono">
           {logs.length === 0 ? (
             <p className="text-gray-500">Listening for Transfer events...</p>
           ) : (
