@@ -1,5 +1,5 @@
 import Connect from "@/components/connect";
-import CustomConnect from "@/components/custom-connect";
+// import CustomConnect from "@/components/custom-connect";
 import AnimateCard from "@/components/animate/card";
 
 export default function page() {
@@ -7,7 +7,7 @@ export default function page() {
     <AnimateCard>
       <div className="h-full w-full overflow-hidden">
         <Connect />
-        <CustomConnect />
+        {/* <CustomConnect /> */}
       </div>
     </AnimateCard>
   );
