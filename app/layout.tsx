@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Providers from "./providers";
+import Providers from "./Providers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 };
 
 import Headerbar from "@/components/header/headerbar";
+import { ToastContainer } from "react-toastify";
 
 export default function RootLayout({
   children,
@@ -31,8 +32,23 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen flex flex-col`}
       >
         <Providers>
+          <div className="bg-mask"></div>
           <Headerbar />
           <main className="flex-1 overflow-auto">{children}</main>
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            toastClassName="custom-toast"
+            progressClassName="custom-toast-progress"
+          />
         </Providers>
       </body>
     </html>

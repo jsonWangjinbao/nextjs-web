@@ -2,6 +2,7 @@
 
 import { Tabs, Tab } from "@heroui/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const GalleryIcon = (props: any) => {
   return (
@@ -85,33 +86,40 @@ export const VideoIcon = (props: any) => {
 };
 
 export default function HeaderMenu() {
+  const pathname = usePathname();
+  const selectedKey = pathname.split("/")[1];
   return (
     <div className="flex w-full flex-col">
-      <Tabs aria-label="Options" color="primary" variant="bordered">
+      <Tabs
+        aria-label="Options"
+        color="primary"
+        variant="underlined"
+        selectedKey={selectedKey}
+      >
         <Tab
-          key="photos"
-          title={
-            <div className="flex items-center space-x-2">
-              <GalleryIcon />
-              <Link href="/web3">Web3</Link>
-            </div>
-          }
-        />
-        <Tab
-          key="music"
-          title={
-            <div className="flex items-center space-x-2">
-              <MusicIcon />
-              <span>Music</span>
-            </div>
-          }
-        />
-        <Tab
-          key="videos"
+          key="walletConnect"
           title={
             <div className="flex items-center space-x-2">
               <VideoIcon />
-              <span>Videos</span>
+              <Link href="/walletConnect">WalletConnect</Link>
+            </div>
+          }
+        />
+        <Tab
+          key="web3Demo"
+          title={
+            <div className="flex items-center space-x-2">
+              <GalleryIcon />
+              <Link href="/web3Demo/wagmi">Web3Demo</Link>
+            </div>
+          }
+        />
+        <Tab
+          key="metaNodeStake"
+          title={
+            <div className="flex items-center space-x-2">
+              <MusicIcon />
+              <Link href="/metaNodeStake/stake">MetaNodeStake</Link>
             </div>
           }
         />

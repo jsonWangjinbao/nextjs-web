@@ -1,8 +1,9 @@
-import { auth } from "@/app/auth";
+"use client";
 import UserActions from "./userActions";
+import { useSession } from "next-auth/react";
 
-export default async function User() {
-  const session = await auth();
+export default function User() {
+  const { data: session } = useSession();
 
   return <UserActions session={session} />;
 }

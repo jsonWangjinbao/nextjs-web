@@ -16,7 +16,7 @@ export const AcmeLogo = () => {
 
 export default function Headerbar() {
   return (
-    <div className="flex h-16 items-center justify-between border-b border-gray-800 text-xl font-bold px-6">
+    <div className="flex h-16 items-center justify-between  text-xl font-bold px-6 shadow-sm shadow-gray-800 bg-gray-900">
       <h1 className="text-2xl font-bold w-64 flex items-center gap-2">
         <AcmeLogo />
         My-App
