@@ -10,7 +10,11 @@ const connectionString = process.env.DATABASE_URL?.startsWith("file:")
     path.join(process.cwd(), process.env.DATABASE_URL.replace("file:", ""))
   : process.env.DATABASE_URL;
 
-console.log("Using connection string:", connectionString);
+console.log(
+  "Using connection string:",
+  process.env.DATABASE_URL,
+  connectionString,
+);
 
 const config = {
   url: connectionString!,
