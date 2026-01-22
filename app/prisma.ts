@@ -8,7 +8,7 @@ const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 const connectionString = process.env.DATABASE_URL?.startsWith("file:")
   ? "file://" +
     path.join(process.cwd(), process.env.DATABASE_URL.replace("file:", ""))
-  : process.env.DATABASE_URL;
+  : process.env.DATABASE_URL?.replace("libsql://", "https://"); // FORCE HTTPs for Turso on Vercel
 
 console.log(
   "Using connection string:",
