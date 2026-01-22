@@ -20,8 +20,27 @@ const config = {
   url: connectionString!,
 } as any;
 
+console.log("--- DEBUG VERCEL ENV ---");
+console.log("DB_URL provided:", !!process.env.DATABASE_URL);
+console.log(
+  "DB_URL value (first 10 chars):",
+  process.env.DATABASE_URL?.substring(0, 10),
+);
+console.log("TURSO_AUTH_TOKEN provided:", !!process.env.TURSO_AUTH_TOKEN);
+console.log(
+  "TURSO_AUTH_TOKEN length:",
+  process.env.TURSO_AUTH_TOKEN ? process.env.TURSO_AUTH_TOKEN.length : 0,
+);
+console.log(
+  "TURSO_AUTH_TOKEN first 10 chars:",
+  process.env.TURSO_AUTH_TOKEN
+    ? process.env.TURSO_AUTH_TOKEN.substring(0, 10)
+    : "N/A",
+);
+console.log("------------------------");
+
 if (process.env.TURSO_AUTH_TOKEN) {
-  config.authToken = process.env.TURSO_AUTH_TOKEN;
+  config.authToken = process.env.TURSO_AUTH_TOKEN.trim(); // Added trim() just in case
 }
 
 const libsql = createClient(config);
