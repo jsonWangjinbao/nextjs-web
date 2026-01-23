@@ -64,14 +64,16 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
           ),
           p: ({ children }) => <p className="mb-4 leading-7">{children}</p>,
           ul: ({ children }) => (
-            <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>
+            <ul className="list-disc list-outside mb-4 ml-6 space-y-2">
+              {children}
+            </ul>
           ),
           ol: ({ children }) => (
-            <ol className="list-decimal list-inside mb-4 space-y-2">
+            <ol className="list-decimal list-outside mb-4 ml-6 space-y-2">
               {children}
             </ol>
           ),
-          li: ({ children }) => <li className="ml-4">{children}</li>,
+          li: ({ children }) => <li className="pl-2">{children}</li>,
           blockquote: ({ children }) => (
             <blockquote className="border-l-4 border-orange-500 pl-4 italic my-4 text-gray-300">
               {children}
