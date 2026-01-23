@@ -19,7 +19,7 @@ export default function Headerbar() {
     <div className="flex h-16 items-center justify-between  text-xl font-bold px-6 shadow-sm shadow-gray-800 bg-gray-900">
       <h1 className="text-2xl font-bold w-64 flex items-center gap-2">
         <AcmeLogo />
-        My-App
+        Universe-Wang
       </h1>
       <div>
         <HeaderMenu />

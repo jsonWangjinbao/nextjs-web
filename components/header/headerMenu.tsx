@@ -123,6 +123,15 @@ export default function HeaderMenu() {
             </div>
           }
         />
+        <Tab
+          key="aiAgent"
+          title={
+            <div className="flex items-center space-x-2">
+              <MusicIcon />
+              <Link href="/aiAgent/mcp">AI Agent</Link>
+            </div>
+          }
+        />
       </Tabs>
     </div>
   );
