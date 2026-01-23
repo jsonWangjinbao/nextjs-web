@@ -25,7 +25,7 @@ export default function MessageList({ messages }: MessageListProps) {
   }, [messages]);
 
   return (
-    <div className="flex-1 overflow-y-auto">
+    <div className="flex-1 overflow-y-auto bg-gray-800/50">
       {messages.length === 0 ? (
         <div className="flex items-center justify-center h-full">
           <div className="text-center max-w-2xl px-4">

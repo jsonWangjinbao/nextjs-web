@@ -160,7 +160,7 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="flex max-w-[1280px] mx-auto h-[calc(100vh-12.5rem)] bg-gray-900 text-gray-100 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.6),0_2px_8px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.7),0_3px_10px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.08)] transition-shadow duration-300">
+    <div className="flex max-w-[1280px] mx-auto h-[calc(100vh-15rem)] bg-gray-900 text-gray-100 rounded-xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.6),0_2px_8px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.7),0_3px_10px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.08)] transition-shadow duration-300">
       {/* Sidebar */}
       <ChatSidebar
         chats={chats}

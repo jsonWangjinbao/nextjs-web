@@ -12,7 +12,7 @@ export default function Message({ role, content }: MessageProps) {
   const isUser = role === "user";
 
   return (
-    <div className="flex w-full py-6 px-4 bg-gray-800/50">
+    <div className="flex w-full py-6 px-4">
       <div
         className={`max-w-3xl mx-auto w-full flex gap-4 ${isUser ? "flex-row-reverse" : ""}`}
       >
